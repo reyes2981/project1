@@ -3,7 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM Content Loaded");
 })
 
-let boardArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9" ]; 
+const boardArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9" ]; 
+const playerX = "X";
+const playerO = "O";
 
 //render board
 loadBoard();
