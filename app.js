@@ -13,7 +13,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
     boardArray.fill(null);
 
-
     const winningCombinations = [
         //rows
         { combo: [1, 2, 3], strikeClass: "strike-row-1" },
@@ -36,13 +35,11 @@ window.addEventListener("DOMContentLoaded", () => {
         if (gameOverArea.classList.contains("visible")) {
             return;
         }
-
         const box = e.target;
         const boxNumber = box.dataset.index;
         if (box.innerText != "") {
             return;
         }
-
         if (turn === playerX) {
             box.innerText = playerX;
             boardArray[boxNumber - 1] = playerX;
@@ -53,9 +50,7 @@ window.addEventListener("DOMContentLoaded", () => {
             turn = playerX;
         }
         checkWinner()
-
     }
-
 
     function checkWinner() {
         //check for a winner
@@ -65,18 +60,21 @@ window.addEventListener("DOMContentLoaded", () => {
             const boxValue1 = boardArray[combo[0] - 1];
             const boxValue2 = boardArray[combo[1] - 1];
             const boxValue3 = boardArray[combo[2] - 1];
-
             if (boxValue1 != null &&
                 boxValue1 === boxValue2 &&
                 boxValue1 === boxValue3) {
                 strikethrough.classList.add(strikeClass)
             }
-
         }
-
-        //check fr a draw
+        //check for a draw
     }
 
+    function gameOverScreen(winnerText) {
+        let text = "Draw!";
+        if (winnerText != null) {
+            text = `Winner is ${winnerText}`;
+        }
+    }
 })
 
 //RESOURCES
