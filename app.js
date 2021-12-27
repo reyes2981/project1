@@ -1,37 +1,38 @@
-//start game
 window.addEventListener("DOMContentLoaded", () => {
     console.log("DOM Content Loaded");
+
     const boxes = document.querySelectorAll(".box");
     const playerX = "X";
     const playerO = "O";
-    let turn = playerX;
     const boardArray = Array(boxes.length);
-    boardArray.fill(null);
     const strikethrough = document.getElementById("strikethrough");
     const gameOverArea = document.getElementById("game-over-area");
     const gameOverText = document.getElementById("game-over-text");
     const playAgain = document.getElementById("play-again");
- 
+    let turn = playerX;
 
-     const winningCombos = [
+    boardArray.fill(null);
+
+
+    const winningCombos = [
         //rows
-      { combo: [1, 2, 3], strikeClass: "strike-row-1" },
-      { combo: [4, 5, 6], strikeClass: "strike-row-2" },
-      { combo: [7, 8, 9], strikeClass: "strike-row-3" },
-      //columns
-      { combo: [1, 4, 7], strikeClass: "strike-column-1" },
-      { combo: [2, 5, 8], strikeClass: "strike-column-2" },
-      { combo: [3, 6, 9], strikeClass: "strike-column-3" },
-      //diagonals
-      { combo: [1, 5, 9], strikeClass: "strike-diagonal-1" },
-      { combo: [1, 5, 9], strikeClass: "strike-diagonal-2" },
-     ];
-  
-      boxes.forEach(box => {
-            box.addEventListener("click", boxClick);
-      })
+        { combo: [1, 2, 3], strikeClass: "strike-row-1" },
+        { combo: [4, 5, 6], strikeClass: "strike-row-2" },
+        { combo: [7, 8, 9], strikeClass: "strike-row-3" },
+        //columns
+        { combo: [1, 4, 7], strikeClass: "strike-column-1" },
+        { combo: [2, 5, 8], strikeClass: "strike-column-2" },
+        { combo: [3, 6, 9], strikeClass: "strike-column-3" },
+        //diagonals
+        { combo: [1, 5, 9], strikeClass: "strike-diagonal-1" },
+        { combo: [3, 5, 7], strikeClass: "strike-diagonal-2" },
+    ];
 
-      function boxClick(e) {
+    boxes.forEach(box => {
+        box.addEventListener("click", boxClick);
+    })
+
+    function boxClick(e) {
         if (gameOverArea.classList.contains("visible")) {
             return;
         }
@@ -42,33 +43,39 @@ window.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        if(turn === playerX) {
+        if (turn === playerX) {
             box.innerText = playerX;
-            boardArray[boxNumber-1] = playerX;
+            boardArray[boxNumber - 1] = playerX;
             turn = playerO;
         } else {
             box.innerText = playerO;
-            boardArray[boxNumber-1] = playerO;
+            boardArray[boxNumber - 1] = playerO;
             turn = playerX;
         }
 
+    }
+
+    checkWinner()
+
+    function checkWinner() {
+        //check for a winner
+        for (const winningCombo of winningCombos) {
+            //object destruscturing
+            const { combo, strikeClass } = winningCombo;
+            const tileValue1 = boardArray[combo[0] - 1];
+            const tileValue2 = boardArray[combo[1] - 1];
+            const tileValue3 = boardArray[combo[2] - 1];
+
+            if (tileValue1 != null && tileValue1 === tileValue2 && tileValue1 === tileValue3) {
+                strikethrough.classList.add(strikeClass)
+            }
+
+        }
+
+        //check fr a draw
+    }
 
 
-
-        checkWinner();
-      }
-
-
-
-    
-
-
-    //player logic
-
-
-    //game logic
-
-    //game ends
 
 })
 
