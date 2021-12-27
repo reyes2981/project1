@@ -63,10 +63,18 @@ window.addEventListener("DOMContentLoaded", () => {
             if (boxValue1 != null &&
                 boxValue1 === boxValue2 &&
                 boxValue1 === boxValue3) {
-                strikethrough.classList.add(strikeClass)
+                strikethrough.classList.add(strikeClass);
+                gameOverScreen(boxValue1);
             }
         }
         //check for a draw
+        const allBoxFilledIn = boardArray.every((box) => {
+            box != null
+        })
+
+        if (allBoxFilledIn) {
+            gameOverScreen(null);
+        }
     }
 
     function gameOverScreen(winnerText) {
@@ -74,6 +82,8 @@ window.addEventListener("DOMContentLoaded", () => {
         if (winnerText != null) {
             text = `Winner is ${winnerText}`;
         }
+        gameOverArea.className = "visible";
+        gameOverText.innerText = text;
     }
 })
 
