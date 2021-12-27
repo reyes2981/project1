@@ -66,3 +66,48 @@
     left: 70%;
     bottom: 0%;
 }
+
+.strike-diagonal-1 {
+   width: 90%;
+   height: 4px;
+   top: 50%;
+   left: 10%;
+   transform: skewY(45deg);
+}
+
+.strike-diagonal-2 {
+    width: 90%;
+    height: 4px;
+    top: 50%;
+    left: 10%;
+    transform: skewY(-45deg);
+ }
+
+ #game-over-area {
+    text-align: center;
+    border: lightblue 8px solid;
+    padding: 50px;
+    width: 50%;
+    margin-top: 50px;
+ }
+
+ h2 {
+     color: red;
+     font-size: 3em;
+     margin-top: 0px;
+ }
+
+ button {
+     background-color: transparent;
+     border: red 1px solid;
+     padding: 10px;
+     font-size: 1.5em;
+ }
+
+ .hidden {
+     display: none;
+ }
+
+ .visible {
+     display: block;
+ }

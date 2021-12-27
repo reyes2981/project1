@@ -9,17 +9,21 @@
 </head>
 <body>
     <div id="board-container">
-        <div data-index="1" class="box">X</div>
-        <div data-index="2" class="box">X</div>
-        <div data-index="3" class="box">X</div>
-        <div data-index="4" class="box">X</div>
-        <div data-index="5" class="box">X</div>
-        <div data-index="6" class="box">X</div>
-        <div data-index="7" class="box">X</div>
-        <div data-index="8" class="box">X</div>
-        <div data-index="9" class="box">X</div>
+        <div data-index="1" class="box"></div>
+        <div data-index="2" class="box"></div>
+        <div data-index="3" class="box"></div>
+        <div data-index="4" class="box"></div>
+        <div data-index="5" class="box"></div>
+        <div data-index="6" class="box"></div>
+        <div data-index="7" class="box"></div>
+        <div data-index="8" class="box"></div>
+        <div data-index="9" class="box"></div>
       </div>
-      <div id="strikethrough" class="strikethrough strike-column-3"></div>
+      <div id="strikethrough" class="strikethrough"></div>
+      <div id="game-over-area" class="hidden">
+          <h2 id="game-over-text">Winner is X</h2>
+          <button id="play-again">Play Again</button>
+      </div>
     <script src="app.js"></script>
 </body>
 </html>
