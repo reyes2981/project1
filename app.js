@@ -14,7 +14,7 @@ window.addEventListener("DOMContentLoaded", () => {
     boardArray.fill(null);
 
 
-    const winningCombos = [
+    const winningCombinations = [
         //rows
         { combo: [1, 2, 3], strikeClass: "strike-row-1" },
         { combo: [4, 5, 6], strikeClass: "strike-row-2" },
@@ -52,21 +52,23 @@ window.addEventListener("DOMContentLoaded", () => {
             boardArray[boxNumber - 1] = playerO;
             turn = playerX;
         }
+        checkWinner()
 
     }
 
-    checkWinner()
 
     function checkWinner() {
         //check for a winner
-        for (const winningCombo of winningCombos) {
+        for (const winningCombo of winningCombinations) {
             //object destruscturing
             const { combo, strikeClass } = winningCombo;
-            const tileValue1 = boardArray[combo[0] - 1];
-            const tileValue2 = boardArray[combo[1] - 1];
-            const tileValue3 = boardArray[combo[2] - 1];
+            const boxValue1 = boardArray[combo[0] - 1];
+            const boxValue2 = boardArray[combo[1] - 1];
+            const boxValue3 = boardArray[combo[2] - 1];
 
-            if (tileValue1 != null && tileValue1 === tileValue2 && tileValue1 === tileValue3) {
+            if (boxValue1 != null &&
+                boxValue1 === boxValue2 &&
+                boxValue1 === boxValue3) {
                 strikethrough.classList.add(strikeClass)
             }
 
@@ -74,8 +76,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
         //check fr a draw
     }
-
-
 
 })
 
