@@ -43,6 +43,10 @@ window.addEventListener("DOMContentLoaded", () => {
             box.innerText = playerX;
             boardArray[boxNumber-1] = playerX;
             turn = playerO;
+        } else {
+            box.innerText = playerO;
+            boardArray[boxNumber-1] = playerO;
+            turn = playerX;
         }
       }
 
