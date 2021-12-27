@@ -13,16 +13,19 @@ window.addEventListener("DOMContentLoaded", () => {
     const playAgain = document.getElementById("play-again");
  
 
-    // const winningCombos = [
-    //     [0, 1, 2],
-    //     [3, 4, 5],
-    //     [6, 7, 8],
-    //     [0, 3, 6],
-    //     [1, 4, 7],
-    //     [2, 5, 8],
-    //     [0, 4, 8],
-    //     [2, 4, 6]
-    // ];
+     const winningCombos = [
+        //rows
+      { combo: [1, 2, 3], strikeClass: "strike-row-1" },
+      { combo: [4, 5, 6], strikeClass: "strike-row-2" },
+      { combo: [7, 8, 9], strikeClass: "strike-row-3" },
+      //columns
+      { combo: [1, 4, 7], strikeClass: "strike-column-1" },
+      { combo: [2, 5, 8], strikeClass: "strike-column-2" },
+      { combo: [3, 6, 9], strikeClass: "strike-column-3" },
+      //diagonals
+      { combo: [1, 5, 9], strikeClass: "strike-diagonal-1" },
+      { combo: [1, 5, 9], strikeClass: "strike-diagonal-2" },
+     ];
   
       boxes.forEach(box => {
             box.addEventListener("click", boxClick);
@@ -48,6 +51,11 @@ window.addEventListener("DOMContentLoaded", () => {
             boardArray[boxNumber-1] = playerO;
             turn = playerX;
         }
+
+
+
+
+        checkWinner();
       }
 
 
