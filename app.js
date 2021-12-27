@@ -1,11 +1,17 @@
 //start game
 window.addEventListener("DOMContentLoaded", () => {
     console.log("DOM Content Loaded");
-     let boardArray = [
-         ["", "", ""],
-         ["", "", ""],
-         ["", "", ""]
-     ];
+    const boxes = document.querySelectorAll(".box");
+    const playerX = "X";
+    const playerO = "O";
+    let turn = playerX;
+    const boardArray = Array(boxes.length);
+    boardArray.fill(null);
+    const strikethrough = document.getElementById("strikethrough");
+    const gameOverArea = document.getElementById("game-over-area");
+    const gameOverText = document.getElementById("game-over-text");
+    const playAgain = document.getElementById("play-again");
+ 
 
     // const winningCombos = [
     //     [0, 1, 2],
@@ -17,24 +23,32 @@ window.addEventListener("DOMContentLoaded", () => {
     //     [0, 4, 8],
     //     [2, 4, 6]
     // ];
+  
+      boxes.forEach(box => {
+            box.addEventListener("click", boxClick);
+      })
 
-    //render board
-     loadBoard();
+      function boxClick(e) {
+        if (gameOverArea.classList.contains("visible")) {
+            return;
+        }
 
-     function loadBoard() {
-        //     const gameBoard = document.getElementById("board-container");
-        //    let i = 0; //counter
-        //  for (let r = 0; r < 3; r++) {
-        //      let row = gameBoard.insertRow(-1); //inserts a new row (<tr>) in a given <table>, and returns a reference to the new row.
-        //      for (let c = 0; c < 3; c++) {
-        //          const cell = row.insertCell(-1); //inserts a new cell (<td>) into a table row (<tr>) and returns a reference to the cell.
-        //          cell.appendChild(document.createTextNode(boardArray[r][c]));
-        //      }
-        //  }
-        //  document.body.appendChild(gameBoard);
+        const box = e.target;
+        const boxNumber = box.dataset.index;
+        if (box.innerText != "") {
+            return;
+        }
+
+        if(turn === playerX) {
+            box.innerText = playerX;
+            boardArray[boxNumber-1] = playerX;
+            turn = playerO;
+        }
+      }
 
 
-     }
+
+    
 
 
     //player logic
