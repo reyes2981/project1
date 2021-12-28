@@ -9,10 +9,6 @@ window.addEventListener("DOMContentLoaded", () => {
     const gameOverArea = document.getElementById("game-over-area");
     const gameOverText = document.getElementById("game-over-text");
     const playAgain = document.getElementById("play-again");
-    let turn = playerX;
-
-    boardArray.fill(null);
-
     const winningCombinations = [
         //rows
         { combo: [1, 2, 3], strikeClass: "strike-row-1" },
@@ -26,6 +22,9 @@ window.addEventListener("DOMContentLoaded", () => {
         { combo: [1, 5, 9], strikeClass: "strike-diagonal-1" },
         { combo: [3, 5, 7], strikeClass: "strike-diagonal-2" },
     ];
+    let turn = playerX;
+
+    boardArray.fill(null);
 
     boxes.forEach(box => {
         box.addEventListener("click", boxClick);
