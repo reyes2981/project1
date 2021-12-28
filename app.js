@@ -1,60 +1,97 @@
 window.addEventListener("DOMContentLoaded", () => {
     console.log("DOM Content Loaded");
-
+    //RETREIVE HTML ELEMENTS
     const boxes = document.querySelectorAll(".box");
-    const playerX = "X";
-    const playerO = "O";
-    const boardArray = Array(boxes.length);
     const strikethrough = document.getElementById("strikethrough");
     const gameOverArea = document.getElementById("game-over-area");
     const gameOverText = document.getElementById("game-over-text");
     const playAgain = document.getElementById("play-again");
-    const winningCombinations = [
-        //rows
-        { combo: [1, 2, 3], strikeClass: "strike-row-1" },
-        { combo: [4, 5, 6], strikeClass: "strike-row-2" },
-        { combo: [7, 8, 9], strikeClass: "strike-row-3" },
-        //columns
-        { combo: [1, 4, 7], strikeClass: "strike-column-1" },
-        { combo: [2, 5, 8], strikeClass: "strike-column-2" },
-        { combo: [3, 6, 9], strikeClass: "strike-column-3" },
-        //diagonals
-        { combo: [1, 5, 9], strikeClass: "strike-diagonal-1" },
-        { combo: [3, 5, 7], strikeClass: "strike-diagonal-2" },
+    //CREATE PLAYERS, ARRAY THAT REPRESENTS BOARD AND WINNING COMBOS
+    const playerX = "X";
+    const playerO = "O";
+    const boardArray = Array(boxes.length); //TRACKS STATE OF PROGRAM - CREATED AN ARRAY WHICH HAS 9 ITEMS(BOXES)
+    const winningCombos = [
+        //ROWS
+        {
+            combo: [1, 2, 3],
+            strikeClass: "strike-row-1"
+        },
+        {
+            combo: [4, 5, 6],
+            strikeClass: "strike-row-2"
+        },
+        {
+            combo: [7, 8, 9],
+            strikeClass: "strike-row-3"
+        },
+        //COLUMNS
+        {
+            combo: [1, 4, 7],
+            strikeClass: "strike-column-1"
+        },
+        {
+            combo: [2, 5, 8],
+            strikeClass: "strike-column-2"
+        },
+        {
+            combo: [3, 6, 9],
+            strikeClass: "strike-column-3"
+        },
+        //DIAGONALS
+        {
+            combo: [1, 5, 9],
+            strikeClass: "strike-diagonal-1"
+        },
+        {
+            combo: [3, 5, 7],
+            strikeClass: "strike-diagonal-2"
+        },
     ];
-    let turn = playerX;
+    let turn = playerX; //TRACKS WHO'S TURN IT IS
 
+    //THE FILL() METHOD CHANGES ALL ELEMENTS IN AN ARRAY TO A STATIC VALUE, FROM A START INDEX (DEFAULT 0) TO 
+    //AN END INDEX (DEFAULT ARRAY.LENGTH). IT RETURNS THE MODIFIED ARRAY
     boardArray.fill(null);
 
-    boxes.forEach(box => {
-        box.addEventListener("click", boxClick);
-    })
+    boxState();
+
+    //FUNCTION THAT ITERATATES OVER LIST OF TILES AND ADDS AN EVENT LISTENER TO EACH INDIVIDUAL BOX
+    function boxState() {
+        boxes.forEach(box => {
+            box.addEventListener("click", boxClick); //FUNCTION WILL BE CALLED WHENEVER THE SPECIFIED EVENT IS DELIVERED TO THE TARGET
+        })
+    }
 
     function boxClick(e) {
+        const box = e.target; //REFERENCE TO THE HTML ELEMENT CLICKED
+        const boxNumber = box.dataset.index;//ACCESS DATA-INDEX ATTRIBUTE
+        //IF GAMEOVER AREA CLASSLIST CONTAINNS "VISIBLE" THE FUNCTION WILL STOP EXECUTING
         if (gameOverArea.classList.contains("visible")) {
             return;
         }
-        const box = e.target;
-        const boxNumber = box.dataset.index;
+        //CHECK IF SPECIFIC BOX IS EMPTY OR HAS AN "X" OR "O" IN IT
         if (box.innerText != "") {
             return;
         }
         if (turn === playerX) {
             box.innerText = playerX;
-            boardArray[boxNumber - 1] = playerX;
+            boardArray[boxNumber - 1] = playerX; //ARRAYS ARE ZERO INDEXED SO I NEED TO SUBTRACT 1 FROM PLAYERS CHOICE FOR GAME TO BE ACCURATE
             turn = playerO;
         } else {
             box.innerText = playerO;
             boardArray[boxNumber - 1] = playerO;
             turn = playerX;
         }
+
+        //FUNCTION IS CALLED ON EVERY SINGLE BOX CLICK - CHECKS IF THERE IS A WINNER
         checkWinner()
     }
 
     function checkWinner() {
-        //check for a winner
-        for (const winningCombo of winningCombinations) {
-            //object destruscturing
+        //CHECK FOR A WINNER
+        for (const winningCombo of winningCombos) {
+            //OBJECT DESTRUSCTURING - THE DESTRUCTURING ASSIGNMENT SYNTAX IS A JAVASCRIPT EXPRESSION THAT MAKES IT 
+            //POSSIBLE TO UNPACK VALUES FROM ARRAYS, OR PROPERTIES FROM OBJECTS, INTO DISTINCT VARIABLES.
             const { combo, strikeClass } = winningCombo;
             const boxValue1 = boardArray[combo[0] - 1];
             const boxValue2 = boardArray[combo[1] - 1];
@@ -66,7 +103,8 @@ window.addEventListener("DOMContentLoaded", () => {
                 gameOverScreen(boxValue1);
             }
         }
-        //check for a draw
+
+        //CHECK FOR A DRAW - REFACTOR
         const allBoxFilledIn = boardArray.every((box) => {
             box != null
         })
@@ -94,4 +132,12 @@ window.addEventListener("DOMContentLoaded", () => {
 //https://www.youtube.com/watch?v=B3pmT7Cpi24&t=124s
 //https://www.youtube.com/watch?v=fPew9OI2PnA
 //https://codepen.io/shammadahmed/pen/JOWEGW
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
+//https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+//https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
 //
+//
+
+//Open Show all commands. Linux and Windows: Ctrl + Shift + P
+//Type in the command, e.g. lower, upper, title
