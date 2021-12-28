@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM Content Loaded");
     //RETREIVE HTML ELEMENTS
     const boxes = document.querySelectorAll(".box");
@@ -12,38 +12,38 @@ window.addEventListener("DOMContentLoaded", () => {
     const boardArray = Array(boxes.length); //TRACKS STATE OF PROGRAM - CREATED AN ARRAY WHICH HAS 9 ITEMS(BOXES)
     const winningCombos = [
         //ROWS
-        {
-            combo: [1, 2, 3],
+        {  // KEY   VALUE
+            combo: [0, 1, 2],
             strikeClass: "strike-row-1"
         },
         {
-            combo: [4, 5, 6],
+            combo: [3, 4, 5],
             strikeClass: "strike-row-2"
         },
         {
-            combo: [7, 8, 9],
+            combo: [6, 7, 8],
             strikeClass: "strike-row-3"
         },
         //COLUMNS
         {
-            combo: [1, 4, 7],
+            combo: [0, 3, 6],
             strikeClass: "strike-column-1"
         },
         {
-            combo: [2, 5, 8],
+            combo: [1, 4, 7],
             strikeClass: "strike-column-2"
         },
         {
-            combo: [3, 6, 9],
+            combo: [2, 5, 8],
             strikeClass: "strike-column-3"
         },
         //DIAGONALS
         {
-            combo: [1, 5, 9],
+            combo: [0, 4, 8],
             strikeClass: "strike-diagonal-1"
         },
         {
-            combo: [3, 5, 7],
+            combo: [2, 4, 6],
             strikeClass: "strike-diagonal-2"
         },
     ];
@@ -55,9 +55,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
     boxState();
 
-    //FUNCTION THAT ITERATATES OVER LIST OF TILES AND ADDS AN EVENT LISTENER TO EACH INDIVIDUAL BOX
+    //FUNCTION THAT ITERATATES OVER LIST OF BOXES AND ADDS AN EVENT LISTENER TO EACH INDIVIDUAL BOX
     function boxState() {
-        boxes.forEach(box => {
+        boxes.forEach((box) => {
             box.addEventListener("click", boxClick); //FUNCTION WILL BE CALLED WHENEVER THE SPECIFIED EVENT IS DELIVERED TO THE TARGET
         })
     }
@@ -65,12 +65,10 @@ window.addEventListener("DOMContentLoaded", () => {
     function boxClick(e) {
         const box = e.target; //REFERENCE TO THE HTML ELEMENT CLICKED
         const boxNumber = box.dataset.index;//ACCESS DATA-INDEX ATTRIBUTE
-        //IF GAMEOVER AREA CLASSLIST CONTAINNS "VISIBLE" THE FUNCTION WILL STOP EXECUTING
-        if (gameOverArea.classList.contains("visible")) {
-            return;
-        }
+        
+        //IF GAMEOVER AREA CLASSLIST CONTAINNS "VISIBLE" THE FUNCTION WILL STOP EXECUTING && 
         //CHECK IF SPECIFIC BOX IS EMPTY OR HAS AN "X" OR "O" IN IT
-        if (box.innerText != "") {
+        if (gameOverArea.classList.contains("visible") && box.innerText != "") {
             return;
         }
         if (turn === playerX) {
@@ -88,14 +86,15 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     function checkWinner() {
-        //CHECK FOR A WINNER
+        //CHECK FOR A WINNER BY LOOPING THROUGH ALL OF THE WINNING COMBINATIONS
         for (const winningCombo of winningCombos) {
-            //OBJECT DESTRUSCTURING - THE DESTRUCTURING ASSIGNMENT SYNTAX IS A JAVASCRIPT EXPRESSION THAT MAKES IT 
-            //POSSIBLE TO UNPACK VALUES FROM ARRAYS, OR PROPERTIES FROM OBJECTS, INTO DISTINCT VARIABLES.
-            const { combo, strikeClass } = winningCombo;
-            const boxValue1 = boardArray[combo[0] - 1];
-            const boxValue2 = boardArray[combo[1] - 1];
-            const boxValue3 = boardArray[combo[2] - 1];
+            const combo = winningCombo.combo; //EXTRACTING COMBO FROM ARRAY
+            const strikeClass = winningCombo.strikeClass; //EXTRACTING STRIKECLASS FROM ARRAY
+
+            const boxValue1 = boardArray[combo[0]];
+            const boxValue2 = boardArray[combo[1]];
+            const boxValue3 = boardArray[combo[2]];
+
             if (boxValue1 != null &&
                 boxValue1 === boxValue2 &&
                 boxValue1 === boxValue3) {
@@ -114,10 +113,10 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function gameOverScreen(winnerText) {
+    function gameOverScreen(wText) {
         let text = "Draw!";
-        if (winnerText != null) {
-            text = `Winner is ${winnerText}`;
+        if (wText != null) {
+            text = `Winner is ${wText}`;
         }
         gameOverArea.className = "visible";
         gameOverText.innerText = text;
@@ -136,8 +135,21 @@ window.addEventListener("DOMContentLoaded", () => {
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
 //https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 //https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
+//https://javascript.plainenglish.io/how-to-refactor-your-complex-nested-if-else-code-28aa162047d5
+//https://p42.ai/blog/2021-09-29/javascript-refactoring-in-action-replace-nested-if-else-with-guards
 //
 //
+//
+//
+//
+//
+//
+//
+
+
+
+
+//GAURD CLAUSES
 
 //Open Show all commands. Linux and Windows: Ctrl + Shift + P
 //Type in the command, e.g. lower, upper, title
