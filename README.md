@@ -9,7 +9,7 @@ Technology used:
 I used javascript, css and html.
 
 Technical Requirements
-*[X]Render a game board in the browser
+*Render a game board in the browser
 *[X]Switch turns between X and O (or whichever markers you select)
 *[X]Visually display which side won if a player gets three in a row, or show a draw if neither player wins
 *[X]Include separate HTML / CSS / JavaScript files
