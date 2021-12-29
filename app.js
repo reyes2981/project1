@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const playerX = "X";
     const playerO = "O";
     const boardArray = Array(boxes.length); //TRACKS STATE OF PROGRAM - CREATED AN ARRAY WHICH HAS 9 ITEMS(BOXES)
+
+
     const winningCombos = [
         //ROWS
         {  // KEY   VALUE
@@ -79,10 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
             box.innerText = playerX;
             boardArray[boxNumber - 1] = playerX; //ARRAYS ARE ZERO INDEXED SO I NEED TO SUBTRACT 1 FROM PLAYERS CHOICE FOR GAME TO BE ACCURATE
             turn = playerO;
+            document.body.append(`It's ${turn}'s turn`);
         } else {
             box.innerText = playerO;
             boardArray[boxNumber - 1] = playerO;
             turn = playerX;
+            document.body.append(`It's ${turn}'s turn`);
         }
 
         //FUNCTION IS CALLED ON EVERY SINGLE BOX CLICK - CHECKS IF THERE IS A WINNER
@@ -131,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
         strikethrough.className = "strikethrough";
         gameOverArea.className = "hidden";
         boardArray.fill(null);
-        boxes.forEach( (box) => {
+        boxes.forEach((box) => {
             box.innerText = "";
         })
         turn = playerX;
