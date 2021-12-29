@@ -49,6 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
     let turn = playerX; //TRACKS WHO'S TURN IT IS
 
+    playAgain.addEventListener("click", restartGame);
+
     //THE FILL() METHOD CHANGES ALL ELEMENTS IN AN ARRAY TO A STATIC VALUE, FROM A START INDEX (DEFAULT 0) TO 
     //AN END INDEX (DEFAULT ARRAY.LENGTH). IT RETURNS THE MODIFIED ARRAY
     boardArray.fill(null);
@@ -122,6 +124,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         gameOverArea.className = "visible";
         gameOverText.innerText = text;
+    }
+
+    function restartGame() {
+        console.log("Play Again");
     }
 })
 
