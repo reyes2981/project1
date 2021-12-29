@@ -6,12 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const gameOverArea = document.getElementById("game-over-area");
     const gameOverText = document.getElementById("game-over-text");
     const playAgain = document.getElementById("play-again");
+    const playerxDiv = document.getElementById("player-X");
+    const playeroDiv = document.getElementById("player-O");
     //CREATE PLAYERS, ARRAY THAT REPRESENTS BOARD AND WINNING COMBOS
     const playerX = "X";
     const playerO = "O";
     const boardArray = Array(boxes.length); //TRACKS STATE OF PROGRAM - CREATED AN ARRAY WHICH HAS 9 ITEMS(BOXES)
-
-
     const winningCombos = [
         //ROWS
         {  // KEY   VALUE
@@ -57,8 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
     //AN END INDEX (DEFAULT ARRAY.LENGTH). IT RETURNS THE MODIFIED ARRAY
     boardArray.fill(null);
 
-    boxState();
+    playerxDiv.append(playerX);
+    playeroDiv.append(playerO);
+  
 
+    boxState();
     //FUNCTION THAT ITERATATES OVER LIST OF BOXES AND ADDS AN EVENT LISTENER TO EACH INDIVIDUAL BOX
     function boxState() {
         boxes.forEach((box) => {
@@ -81,12 +84,12 @@ document.addEventListener("DOMContentLoaded", () => {
             box.innerText = playerX;
             boardArray[boxNumber - 1] = playerX; //ARRAYS ARE ZERO INDEXED SO I NEED TO SUBTRACT 1 FROM PLAYERS CHOICE FOR GAME TO BE ACCURATE
             turn = playerO;
-            document.body.append(`It's ${turn}'s turn`);
+            document.body.append(`It's ${playeroDiv.innerText}'s turn`);
         } else {
             box.innerText = playerO;
             boardArray[boxNumber - 1] = playerO;
             turn = playerX;
-            document.body.append(`It's ${turn}'s turn`);
+            document.body.append(`It's ${playerxDiv.innerText}'s turn`);
         }
 
         //FUNCTION IS CALLED ON EVERY SINGLE BOX CLICK - CHECKS IF THERE IS A WINNER
@@ -139,6 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
             box.innerText = "";
         })
         turn = playerX;
+        
     }
 })
 
@@ -154,8 +158,14 @@ document.addEventListener("DOMContentLoaded", () => {
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
 //https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 //https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
+//https://stackoverflow.com/questions/70332016/creating-a-readme-md-in-gitlab
+//https://stackoverflow.com/questions/65936070/how-to-handle-an-undefined-value-with-angular-string-interpolation
+//https://www.geeksforgeeks.org/how-to-clear-the-content-of-a-div-using-javascript/
 //
 //
+//
+
+
 
 //Open Show all commands. Linux and Windows: Ctrl + Shift + P
 //Type in the command, e.g. lower, upper, title

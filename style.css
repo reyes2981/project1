@@ -22,92 +22,96 @@
   align-items: center;
 }
 
-
 .strikethrough {
-    position: absolute;
-    background-color: red;
+  position: absolute;
+  background-color: red;
 }
 
 .strike-row-1 {
-    width: 100%;
-    height: 4px;
-    top: 15%;
+  width: 100%;
+  height: 4px;
+  top: 15%;
 }
 
 .strike-row-2 {
-    width: 100%;
-    height: 4px;
-    top: 48%;
+  width: 100%;
+  height: 4px;
+  top: 48%;
 }
 
 .strike-row-3 {
-    width: 100%;
-    height: 4px;
-    top: 83%;
+  width: 100%;
+  height: 4px;
+  top: 83%;
 }
 
 .strike-column-1 {
-    height: 100%;
-    width: 4px;
-    left: 30%;
-    bottom: 0%;
+  height: 100%;
+  width: 4px;
+  left: 30%;
+  bottom: 0%;
 }
 
 .strike-column-2 {
-    height: 100%;
-    width: 4px;
-    left: 50%;
-    bottom: 0%;
+  height: 100%;
+  width: 4px;
+  left: 50%;
+  bottom: 0%;
 }
 
 .strike-column-3 {
-    height: 100%;
-    width: 4px;
-    left: 70%;
-    bottom: 0%;
+  height: 100%;
+  width: 4px;
+  left: 70%;
+  bottom: 0%;
 }
 
 .strike-diagonal-1 {
-   width: 90%;
-   height: 4px;
-   top: 50%;
-   left: 10%;
-   transform: skewY(45deg);
+  width: 90%;
+  height: 4px;
+  top: 50%;
+  left: 10%;
+  transform: skewY(45deg);
 }
 
 .strike-diagonal-2 {
-    width: 90%;
-    height: 4px;
-    top: 50%;
-    left: 10%;
-    transform: skewY(-45deg);
- }
+  width: 90%;
+  height: 4px;
+  top: 50%;
+  left: 10%;
+  transform: skewY(-45deg);
+}
 
- #game-over-area {
-    text-align: center;
-    border: lightblue 8px solid;
-    padding: 50px;
-    width: 50%;
-    margin-top: 50px;
- }
+#game-over-area {
+  text-align: center;
+  border: lightblue 8px solid;
+  padding: 50px;
+  width: 50%;
+  margin-top: 50px;
+}
 
- h2 {
-     color: red;
-     font-size: 3em;
-     margin-top: 0px;
- }
+h2 {
+  color: red;
+  font-size: 3em;
+  margin-top: 0px;
+}
 
- button {
-     background-color: transparent;
-     border: red 1px solid;
-     padding: 10px;
-     font-size: 1.5em;
- }
+button {
+  background-color: transparent;
+  border: red 1px solid;
+  padding: 10px;
+  font-size: 1.5em;
+}
 
- .hidden {
-     display: none;
- }
+.hidden {
+  display: none;
+}
 
- .visible {
-     display: block;
- }
+.visible {
+  display: block;
+}
+
+.playersDiv {
+    position: relative;
+    
+}
