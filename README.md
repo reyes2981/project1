@@ -31,20 +31,20 @@ User Stories
 ## Presentation
 
 What would you do differently?
-I would build it out using OOP
+* I would build it out using OOP
 
 What are you most proud of?
-I'm proud that I was able to get the logic in JavaScript working
+* I'm proud that I was able to get the logic in JavaScript working
 
 What would you do next?
-Next, I would build out the AI feature
+* Next, I would build out the AI feature
 
 How did you plan your project?
 * Planned out how I would draw out board with HTML/CSS
 * Next, I worked on the logic in javascript
 
 What did you learn?
-How to use DOM manipulation
+* How to use DOM manipulation
 
 ## RESOURCES
 * https://www.py4u.net/discuss/1158967
