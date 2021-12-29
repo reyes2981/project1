@@ -1,6 +1,6 @@
 #board-container {
-  width: 600px;
-  height: 600px;
+  width: 300px;
+  height: 300px;
   margin: 0 auto;
   background-color: #34495e;
   color: #fff;
@@ -86,8 +86,10 @@
   text-align: center;
   border: lightblue 8px solid;
   padding: 50px;
-  width: 50%;
+  width: 300px;
   margin-top: 50px;
+  position: relative;
+  left: 200px;
 }
 
 h2 {

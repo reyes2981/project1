@@ -84,12 +84,12 @@ document.addEventListener("DOMContentLoaded", () => {
             box.innerText = playerX;
             boardArray[boxNumber - 1] = playerX; //ARRAYS ARE ZERO INDEXED SO I NEED TO SUBTRACT 1 FROM PLAYERS CHOICE FOR GAME TO BE ACCURATE
             turn = playerO;
-            document.body.append(`It's ${playeroDiv.innerText}'s turn`);
+            console.log(`It's ${playeroDiv.innerText}'s turn`);
         } else {
             box.innerText = playerO;
             boardArray[boxNumber - 1] = playerO;
             turn = playerX;
-            document.body.append(`It's ${playerxDiv.innerText}'s turn`);
+            console.log(`It's ${playerxDiv.innerText}'s turn`);
         }
 
         //FUNCTION IS CALLED ON EVERY SINGLE BOX CLICK - CHECKS IF THERE IS A WINNER
@@ -145,27 +145,3 @@ document.addEventListener("DOMContentLoaded", () => {
         
     }
 })
-
-//RESOURCES
-//https://www.py4u.net/discuss/1158967
-//https://www.youtube.com/watch?v=GTWrWM1UsnA&t=829s
-//https://stackoverflow.com/questions/58113438/javascript-tic-tac-toe-check-if-someone-won
-//https://stackoverflow.com/questions/53311809/all-possible-combinations-of-a-2d-array-in-javascript
-//https://www.youtube.com/watch?v=B3pmT7Cpi24&t=124s
-//https://www.youtube.com/watch?v=fPew9OI2PnA
-//https://codepen.io/shammadahmed/pen/JOWEGW
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
-//https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
-//https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
-//https://stackoverflow.com/questions/70332016/creating-a-readme-md-in-gitlab
-//https://stackoverflow.com/questions/65936070/how-to-handle-an-undefined-value-with-angular-string-interpolation
-//https://www.geeksforgeeks.org/how-to-clear-the-content-of-a-div-using-javascript/
-//
-//
-//
-
-
-
-//Open Show all commands. Linux and Windows: Ctrl + Shift + P
-//Type in the command, e.g. lower, upper, title

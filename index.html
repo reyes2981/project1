@@ -1,40 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <!-- Tic Tac Toe Board -->
     <div id="board-container">
-      <div data-index="1" class="box"></div>
-      <div data-index="2" class="box"></div>
-      <div data-index="3" class="box"></div>
-      <div data-index="4" class="box"></div>
-      <div data-index="5" class="box"></div>
-      <div data-index="6" class="box"></div>
-      <div data-index="7" class="box"></div>
-      <div data-index="8" class="box"></div>
-      <div data-index="9" class="box"></div>
-    </div>
-    <!-- player divs -->
-    <div class="playersDiv">
+        <div data-index="1" class="box"></div>
+        <div data-index="2" class="box"></div>
+        <div data-index="3" class="box"></div>
+        <div data-index="4" class="box"></div>
+        <div data-index="5" class="box"></div>
+        <div data-index="6" class="box"></div>
+        <div data-index="7" class="box"></div>
+        <div data-index="8" class="box"></div>
+        <div data-index="9" class="box"></div>
+      </div>
+      <!-- player divs -->
       <div id="player-X" class="hidden"></div>
       <div id="player-O" class="hidden"></div>
-    </div>
 
-    <!-- strikethrough line  -->
-    <div id="strikethrough" class="strikethrough"></div>
-    <!-- gameover -->
-    <div id="game-over-area" class="hidden">
-      <h2 id="game-over-text">Winner is X</h2>
-      <button id="play-again">Play Again</button>
-    </div>
+
+      <!-- strikethrough line  -->
+      <div id="strikethrough" class="strikethrough"></div>
+      <!-- gameover -->
+      <div id="game-over-area" class="hidden">
+          <h2 id="game-over-text">Winner is X</h2>
+          <button id="play-again">Play Again</button>
+      </div>
     <script src="app.js"></script>
-  </body>
+</body>
 </html>
 
 <!-- I need to adjust the positions of the strikethrough lines -->
