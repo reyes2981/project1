@@ -28,50 +28,32 @@ User Stories
 * [X]As a user, I should not be able to continue playing once I win, lose, or tie
 * [X]As a user, I should be able to play the game again without refreshing the page
 
-Presentation
+## Presentation
+
 What would you do differently?
 
-Less code. I may have over-complicated it.
-MVC would have been a good model.
+
 What are you most proud of?
 
-The two arrays to track user moves.
 What would you do next?
 
-Probably another refactor.
-The 2d (nested) array matrix
 How did you plan your project?
 
-I used the userstories provided to drive the process.
-I tried a few things out that I haven't played with much before
-Tried passing data in from node.
-Tried a Class based approach with js.
 What did you learn?
 
-Stay simple.
-JS's classes are weird.
-A pen-and-paper is handy when working through problems.
-Q & A
 
-
-//RESOURCES
-//https://www.py4u.net/discuss/1158967
-//https://www.youtube.com/watch?v=GTWrWM1UsnA&t=829s
-//https://stackoverflow.com/questions/58113438/javascript-tic-tac-toe-check-if-someone-won
-//https://stackoverflow.com/questions/53311809/all-possible-combinations-of-a-2d-array-in-javascript
-//https://www.youtube.com/watch?v=B3pmT7Cpi24&t=124s
-//https://www.youtube.com/watch?v=fPew9OI2PnA
-//https://codepen.io/shammadahmed/pen/JOWEGW
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
-//https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
-//https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
-//https://stackoverflow.com/questions/70332016/creating-a-readme-md-in-gitlab
-//https://stackoverflow.com/questions/65936070/how-to-handle-an-undefined-value-with-angular-string-interpolation
-//https://www.geeksforgeeks.org/how-to-clear-the-content-of-a-div-using-javascript/
-//
-//
-//
-
-//Open Show all commands. Linux and Windows: Ctrl + Shift + P
-//Type in the command, e.g. lower, upper, title
+## RESOURCES
+* https://www.py4u.net/discuss/1158967
+* https://www.youtube.com/watch?v=GTWrWM1UsnA&t=829s
+* https://stackoverflow.com/questions/58113438/javascript-tic-tac-toe-check-if-someone-won
+* https://stackoverflow.com/questions/53311809/all-possible-combinations-of-a-2d-array-in-javascript
+* https://www.youtube.com/watch?v=B3pmT7Cpi24&t=124s
+* https://www.youtube.com/watch?v=fPew9OI2PnA
+* https://codepen.io/shammadahmed/pen/JOWEGW
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
+* https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+* https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
+* https://stackoverflow.com/questions/70332016/creating-a-readme-md-in-gitlab
+* https://stackoverflow.com/questions/65936070/how-to-handle-an-undefined-value-with-angular-string-interpolation
+* https://www.geeksforgeeks.org/how-to-clear-the-content-of-a-div-using-javascript/
