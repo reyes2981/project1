@@ -1,5 +1,5 @@
 * {
-    background-color: #264653;
+  background-color: #264653;
 }
 
 #board-container {
@@ -33,17 +33,17 @@
 }
 
 .strike-row-1 {
-    width: 42%;
-    height: 4px;
-    top: 9%;
-    left: 30%
+  width: 42%;
+  height: 4px;
+  top: 9%;
+  left: 30%;
 }
 
 .strike-row-2 {
   width: 42%;
   height: 4px;
   top: 28%;
-  left: 30%
+  left: 30%;
 }
 
 .strike-row-3 {
@@ -83,11 +83,11 @@
 }
 
 .strike-diagonal-2 {
-    width: 25%;
-    height: 4px;
-    top: 20%;
-    left: 40%;
-    transform: skewY(-45deg);
+  width: 25%;
+  height: 4px;
+  top: 20%;
+  left: 40%;
+  transform: skewY(-45deg);
 }
 
 #game-over-area {
@@ -122,18 +122,17 @@ button {
 }
 
 .playersDiv {
-    position: relative;
-    
+  position: relative;
 }
 
 #name-div {
-    color: #f4a261;
-    position:fixed; 
-    left:80px; 
-    top:22%;
+  color: #f4a261;
+  position: fixed;
+  left: 80px;
+  top: 22%;
 }
 
 #play-again {
-    color: #e76f51;
-    font-weight: bold;
+  color: #e76f51;
+  font-weight: bold;
 }

@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     playerxDiv.append(playerX);
     playeroDiv.append(playerO);
-  
+
 
     boxState();
     //FUNCTION THAT ITERATATES OVER LIST OF BOXES AND ADDS AN EVENT LISTENER TO EACH INDIVIDUAL BOX
@@ -142,6 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
             box.innerText = "";
         })
         turn = playerX;
-        
+
     }
 })
