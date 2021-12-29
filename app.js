@@ -65,10 +65,12 @@ document.addEventListener("DOMContentLoaded", () => {
     function boxClick(e) {
         const box = e.target; //REFERENCE TO THE HTML ELEMENT CLICKED
         const boxNumber = box.dataset.index;//ACCESS DATA-INDEX ATTRIBUTE
-        
-        //IF GAMEOVER AREA CLASSLIST CONTAINNS "VISIBLE" THE FUNCTION WILL STOP EXECUTING && 
+        //IF GAMEOVER AREA CLASSLIST CONTAINNS "VISIBLE" THE FUNCTION WILL STOP EXECUTING
+        if (gameOverArea.classList.contains("visible")) {
+            return;
+        }
         //CHECK IF SPECIFIC BOX IS EMPTY OR HAS AN "X" OR "O" IN IT
-        if (gameOverArea.classList.contains("visible") && box.innerText != "") {
+        if (box.innerText != "") {
             return;
         }
         if (turn === playerX) {
@@ -135,21 +137,8 @@ document.addEventListener("DOMContentLoaded", () => {
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
 //https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 //https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
-//https://javascript.plainenglish.io/how-to-refactor-your-complex-nested-if-else-code-28aa162047d5
-//https://p42.ai/blog/2021-09-29/javascript-refactoring-in-action-replace-nested-if-else-with-guards
 //
 //
-//
-//
-//
-//
-//
-//
-
-
-
-
-//GAURD CLAUSES
 
 //Open Show all commands. Linux and Windows: Ctrl + Shift + P
 //Type in the command, e.g. lower, upper, title
