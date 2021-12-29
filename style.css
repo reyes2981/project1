@@ -1,18 +1,23 @@
+* {
+    background-color: #264653;
+}
+
 #board-container {
   width: 300px;
   height: 300px;
   margin: 0 auto;
-  background-color: #34495e;
+  background-color: #e9c46a;
   color: #fff;
-  border: 6px solid #2c3e50;
+  border: 6px solid #e9c46a;
   border-radius: 10px;
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   position: relative;
+  top: 30%;
 }
 
 .box {
-  border: 6px solid #2c3e50;
+  border: 6px solid #e9c46a;
   border-radius: 2px;
   font-family: Helvetica;
   font-weight: bold;
@@ -28,27 +33,30 @@
 }
 
 .strike-row-1 {
-  width: 100%;
-  height: 4px;
-  top: 10%;
+    width: 42%;
+    height: 4px;
+    top: 9%;
+    left: 30%
 }
 
 .strike-row-2 {
-  width: 100%;
+  width: 42%;
   height: 4px;
   top: 28%;
+  left: 30%
 }
 
 .strike-row-3 {
-  width: 100%;
+  width: 42%;
   height: 4px;
   top: 45%;
+  left: 30%;
 }
 
 .strike-column-1 {
   height: 100%;
   width: 4px;
-  left: 30%;
+  left: 42.5%;
   bottom: 0%;
 }
 
@@ -62,8 +70,8 @@
 .strike-column-3 {
   height: 100%;
   width: 4px;
-  left: 70%;
-  bottom: 0%;
+  left: 57%;
+  bottom: 10%;
 }
 
 .strike-diagonal-1 {
@@ -84,7 +92,7 @@
 
 #game-over-area {
   text-align: center;
-  border: lightblue 8px solid;
+  border: #e9c46a 8px solid;
   padding: 50px;
   width: 300px;
   margin-top: 50px;
@@ -100,7 +108,7 @@ h2 {
 
 button {
   background-color: transparent;
-  border: red 1px solid;
+  border: #e9c46a 1px solid;
   padding: 10px;
   font-size: 1.5em;
 }
@@ -116,4 +124,16 @@ button {
 .playersDiv {
     position: relative;
     
+}
+
+#name-div {
+    color: #f4a261;
+    position:fixed; 
+    left:80px; 
+    top:22%;
+}
+
+#play-again {
+    color: #e76f51;
+    font-weight: bold;
 }
