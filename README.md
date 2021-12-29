@@ -9,16 +9,16 @@ Technology used:
 I used javascript, css and html.
 
 Technical Requirements
--[X]Render a game board in the browser
--[X]Switch turns between X and O (or whichever markers you select)
--[X]Visually display which side won if a player gets three in a row, or show a draw if neither player wins
--[X]Include separate HTML / CSS / JavaScript files
--[X]Stick with KISS (Keep It Simple Stupid) and DRY (Don't Repeat Yourself) principles
--[X]Use JavaScript for DOM manipulation
--[X]Deploy your game online, where the rest of the world can access it
--[X]You can use GitHub Pages for deploying your project #I used Netlify
--[X]Use semantic markup for HTML and CSS (adhere to best practices)
--[X]Have well-formatted, and well-commented code
+1.[X]Render a game board in the browser
+2.[X]Switch turns between X and O (or whichever markers you select)
+3.[X]Visually display which side won if a player gets three in a row, or show a draw if neither player wins
+4.[X]Include separate HTML / CSS / JavaScript files
+5.[X]Stick with KISS (Keep It Simple Stupid) and DRY (Don't Repeat Yourself) principles
+1.[X]Use JavaScript for DOM manipulation
+1.[X]Deploy your game online, where the rest of the world can access it
+1.[X]You can use GitHub Pages for deploying your project #I used Netlify
+1.[X]Use semantic markup for HTML and CSS (adhere to best practices)
+1.[X]Have well-formatted, and well-commented code
 
 User Stories
 [X]As a user, I should be able to start a new tic tac toe game
