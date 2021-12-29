@@ -104,12 +104,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 boxValue1 === boxValue3) {
                 strikethrough.classList.add(strikeClass);
                 gameOverScreen(boxValue1);
+                return;
             }
         }
-
         //CHECK FOR A DRAW - REFACTOR
         const allBoxFilledIn = boardArray.every((box) => {
-            box != null
+            box !== null
         })
 
         if (allBoxFilledIn) {
@@ -126,8 +126,15 @@ document.addEventListener("DOMContentLoaded", () => {
         gameOverText.innerText = text;
     }
 
+
     function restartGame() {
-        console.log("Play Again");
+        strikethrough.className = "strikethrough";
+        gameOverArea.className = "hidden";
+        boardArray.fill(null);
+        boxes.forEach( (box) => {
+            box.innerText = "";
+        })
+        turn = playerX;
     }
 })
 
