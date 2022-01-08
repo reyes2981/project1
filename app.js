@@ -11,41 +11,41 @@ document.addEventListener("DOMContentLoaded", () => {
     //CREATE PLAYERS, ARRAY THAT REPRESENTS BOARD AND WINNING COMBOS
     const playerX = "X";
     const playerO = "O";
-    const boardArray = Array(boxes.length); //TRACKS STATE OF PROGRAM - CREATED AN ARRAY WHICH HAS 9 ITEMS(BOXES)
+    const boardState = Array(boxes.length); //TRACKS STATE OF PROGRAM - CREATED AN ARRAY WHICH HAS 9 ITEMS(BOXES)
     const winningCombos = [
         //ROWS
         {  // KEY   VALUE
-            combo: [0, 1, 2],
+            combo: [1, 2, 3],
             strikeClass: "strike-row-1"
         },
         {
-            combo: [3, 4, 5],
+            combo: [4, 5, 6],
             strikeClass: "strike-row-2"
         },
         {
-            combo: [6, 7, 8],
+            combo: [7, 8, 9],
             strikeClass: "strike-row-3"
         },
         //COLUMNS
         {
-            combo: [0, 3, 6],
+            combo: [1, 4, 7],
             strikeClass: "strike-column-1"
         },
         {
-            combo: [1, 4, 7],
+            combo: [2, 5, 8],
             strikeClass: "strike-column-2"
         },
         {
-            combo: [2, 5, 8],
+            combo: [3, 6, 9],
             strikeClass: "strike-column-3"
         },
         //DIAGONALS
         {
-            combo: [0, 4, 8],
+            combo: [1, 5, 9],
             strikeClass: "strike-diagonal-1"
         },
         {
-            combo: [2, 4, 6],
+            combo: [3, 5, 7],
             strikeClass: "strike-diagonal-2"
         },
     ];
@@ -55,11 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //THE FILL() METHOD CHANGES ALL ELEMENTS IN AN ARRAY TO A STATIC VALUE, FROM A START INDEX (DEFAULT 0) TO 
     //AN END INDEX (DEFAULT ARRAY.LENGTH). IT RETURNS THE MODIFIED ARRAY
-    boardArray.fill(null);
-
-    playerxDiv.append(playerX);
-    playeroDiv.append(playerO);
-
+    boardState.fill(null);
 
     boxState();
     //FUNCTION THAT ITERATATES OVER LIST OF BOXES AND ADDS AN EVENT LISTENER TO EACH INDIVIDUAL BOX
@@ -82,12 +78,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (turn === playerX) {
             box.innerText = playerX;
-            boardArray[boxNumber - 1] = playerX; //ARRAYS ARE ZERO INDEXED SO I NEED TO SUBTRACT 1 FROM PLAYERS CHOICE FOR GAME TO BE ACCURATE
+            boardState[boxNumber - 1] = playerX; //ARRAYS ARE ZERO INDEXED SO I NEED TO SUBTRACT 1 FROM PLAYERS CHOICE FOR GAME TO BE ACCURATE
             turn = playerO;
             console.log(`It's ${playeroDiv.innerText}'s turn`);
         } else {
             box.innerText = playerO;
-            boardArray[boxNumber - 1] = playerO;
+            boardState[boxNumber - 1] = playerO;
             turn = playerX;
             console.log(`It's ${playerxDiv.innerText}'s turn`);
         }
@@ -99,29 +95,27 @@ document.addEventListener("DOMContentLoaded", () => {
     function checkWinner() {
         //CHECK FOR A WINNER BY LOOPING THROUGH ALL OF THE WINNING COMBINATIONS
         for (const winningCombo of winningCombos) {
-            const combo = winningCombo.combo; //EXTRACTING COMBO FROM ARRAY
-            const strikeClass = winningCombo.strikeClass; //EXTRACTING STRIKECLASS FROM ARRAY
-
-            const boxValue1 = boardArray[combo[0]];
-            const boxValue2 = boardArray[combo[1]];
-            const boxValue3 = boardArray[combo[2]];
-
-            if (boxValue1 != null &&
-                boxValue1 === boxValue2 &&
+            const { combo, strikeClass } = winningCombo; //EXTRACTING COMBO / STRIKETHROUOGH FROM ARRAY
+            const boxValue1 = boardState[combo[0] - 1];
+            const boxValue2 = boardState[combo[1] - 1];
+            const boxValue3 = boardState[combo[2] - 1];
+ 
+            if (boxValue1 != null && 
+                boxValue1 === boxValue2 && 
                 boxValue1 === boxValue3) {
                 strikethrough.classList.add(strikeClass);
                 gameOverScreen(boxValue1);
                 return;
             }
         }
-        //CHECK FOR A DRAW - REFACTOR
-        const allBoxFilledIn = boardArray.every((box) => {
-            box !== null
-        })
+        
+       //CHECK FOR A DRAW - REFACTOR
+       const allBoxesFilledIn = boardState.every((tile) => tile !== null);
+    if (allBoxesFilledIn) {
+        gameOverScreen(null);
+        console.log("it's a draw");
+    }
 
-        if (allBoxFilledIn) {
-            gameOverScreen(null);
-        }
     }
 
     function gameOverScreen(wText) {
@@ -137,11 +131,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function restartGame() {
         strikethrough.className = "strikethrough";
         gameOverArea.className = "hidden";
-        boardArray.fill(null);
+        boardState.fill(null);
         boxes.forEach((box) => {
             box.innerText = "";
         })
         turn = playerX;
-
     }
 })
